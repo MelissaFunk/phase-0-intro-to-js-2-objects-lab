@@ -4,7 +4,9 @@ const employee = {
 }
 
 function updateEmployeeWithKeyAndValue(employee, key, value) {
-    return Object.assign({}, employee, { [key]: value});
+    return {
+        ...employee,[key]: value
+    };
 }
 
 function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value) {
@@ -13,9 +15,11 @@ function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value) {
 }
 
 function deleteFromEmployeeByKey(employee, key) {
-    const newObj = Object.assign({}, employee);
-    delete newObj [key];
-    return newObj;
+    const revisedEmployee = {
+        ...employee
+    }
+    delete revisedEmployee[key];
+    return revisedEmployee;
 }
 
 function destructivelyDeleteFromEmployeeByKey(employee, key) {
